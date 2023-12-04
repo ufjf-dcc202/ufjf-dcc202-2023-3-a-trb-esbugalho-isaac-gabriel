@@ -2,9 +2,20 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   margin: 20px;
-  background-color: #708090;
-}
 
+}
+.img{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.nav h1 {
+  color: #ffffff;
+  box-shadow: 0px 4px 8px 0px rgba(68, 255, 146, 0.2);
+}
 .tabuleiro {
   display: flex;
   max-width: 300px;
@@ -33,9 +44,27 @@ body {
   cursor: pointer;
 }
 
-.jogadores h1{
+.jogador1 h1{
   font-size: 16px;
 }
-.jogadores{
+.jogador1{
   width: 180px;
+  }
+  .jogador2 h1{
+    font-size: 16px;
+  }
+  .jogador2{
+    width: 180px;
+}
+.jogador1 img {
+  width: 150px;
+  height: 100px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.jogador2 img{
+  width: 150px;
+  height: 100px;
+  border-radius: 10px;
 }
