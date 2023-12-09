@@ -1,5 +1,5 @@
 // Função para criar um tabuleiro vazio de 3x3
-function criarTabuleiroVazio() {
+function criarTabuleiro() {
   // Inicializa um array 3x3 preenchido com valores nulos
   const tabuleiro = [
     [null, null, null],
@@ -32,7 +32,7 @@ function renderizarTabuleiro(tabuleiro, jogadorId) {
       celulaElemento.innerText = tabuleiro[i][j] || '';
       
       // Adiciona um evento de clique para lidar com a interação do jogador
-      celulaElemento.onclick = () => lidarClique(jogadorId, i, j);
+      celulaElemento.onclick = () => Clique(jogadorId, i, j);
       
       // Adiciona a célula à linha
       linhaElemento.appendChild(celulaElemento);
@@ -44,7 +44,7 @@ function renderizarTabuleiro(tabuleiro, jogadorId) {
 }
 
 // Função para lidar com o clique do jogador em uma célula
-function lidarClique(jogadorId, linha, coluna) {
+function Clique(jogadorId, linha, coluna) {
   // Obtém o tabuleiro do jogador atual
   const tabuleiroAtual = jogadorId === 1 ? jogador1Tabuleiro : jogador2Tabuleiro;
 
@@ -58,7 +58,7 @@ function lidarClique(jogadorId, linha, coluna) {
 }
 
 // Inicialização dos tabuleiros e renderização inicial na interface
-let jogador1Tabuleiro = criarTabuleiroVazio();
-let jogador2Tabuleiro = criarTabuleiroVazio();
+let jogador1Tabuleiro = criarTabuleiro();
+let jogador2Tabuleiro = criarTabuleiro();
 renderizarTabuleiro(jogador1Tabuleiro, 1);
 renderizarTabuleiro(jogador2Tabuleiro, 2);
