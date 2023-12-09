@@ -2,7 +2,14 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   margin: 20px;
-  background-color: #708090;
+}
+
+body h1{
+  color: white;
+  cursor: pointer;
+}
+body h1:hover{
+  color: red;
 }
 
 .tabuleiro {
@@ -39,3 +46,29 @@ body {
 .jogadores{
   width: 180px;
 }
+
+.jogadores img{
+  width: 100px;
+  height: 30%;
+  border-radius: 5px;
+}
+.fundo_img {
+  width: 100%;
+  height: 100%; /* 100% da altura da viewport */
+  object-fit: cover; /* Para cobrir toda a área, mantendo a proporção da imagem */
+  position: fixed; /* Para manter a imagem fixa na tela enquanto rola */
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.jogadores h1{
+    color: #fff;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .jogadores h1:hover {
+    color: red;
+  }
