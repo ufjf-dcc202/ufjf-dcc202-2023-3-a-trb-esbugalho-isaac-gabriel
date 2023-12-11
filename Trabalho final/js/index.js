@@ -1,4 +1,3 @@
-// Função para criar um tabuleiro vazio 3x3
 function criarTabuleiro() {
   const tabuleiro = [
     [null, null, null],
@@ -29,7 +28,7 @@ function renderizarTabuleiro(tabuleiro, jogadorId) {
 
       // Atribuir o texto da célula com o valor presente no tabuleiro ou uma string vazia se for nulo
       celulaElemento.innerText = tabuleiro[i][j] || '';
-
+      
       // Associar a função Clique ao evento de clique da célula
       celulaElemento.onclick = () => Clique(jogadorId, i, j);
 
@@ -41,39 +40,44 @@ function renderizarTabuleiro(tabuleiro, jogadorId) {
     tabuleiroElemento.appendChild(linhaElemento);
   }
 }
-
-// Função chamada quando uma célula é clicada
 function Clique(jogadorId, linha, coluna) {
-  // Obter o tabuleiro atual e o tabuleiro do jogador adversário
-  const tabuleiroAtual = jogadorId === 1 ? jogador1Tabuleiro : jogador2Tabuleiro;
-  const outroTabuleiro = jogadorId === 1 ? jogador2Tabuleiro : jogador1Tabuleiro;
+  let tabuleiroAtual;
+  let outroTabuleiro;
 
-  // Verificar se a célula está vazia
+  if (jogadorId === 1) {
+    tabuleiroAtual = jogador1Tabuleiro;
+    outroTabuleiro = jogador2Tabuleiro;
+  } else {
+    tabuleiroAtual = jogador2Tabuleiro;
+    outroTabuleiro = jogador1Tabuleiro;
+  }
+
   if (!tabuleiroAtual[linha][coluna]) {
-    // Gerar um número aleatório de 1 a 9 e atribuir à célula
     const numeroAleatorio = Math.floor(Math.random() * 9) + 1;
     tabuleiroAtual[linha][coluna] = numeroAleatorio;
 
-    // Verificar se existe um número igual na linha do outro jogador
-    for (let i = 0; i < outroTabuleiro.length; i++) {
-      const linhaAdversario = outroTabuleiro[i];
-      // Se houver um número igual, zerar toda a linha do adversário
-      if (linhaAdversario.includes(numeroAleatorio)) {
-        for (let j = 0; j < linhaAdversario.length; j++) {
-          linhaAdversario[j] = 0;
-        }
+    // Verificar se pelo menos um valor na linha do adversário é igual ao valor clicado
+    const temValorIgual = outroTabuleiro[linha].some((numero) => numero === numeroAleatorio);
+
+    if (temValorIgual) {
+      // Se pelo menos um valor for igual, zera a linha do adversário
+      for (let j = 0; j < outroTabuleiro[linha].length; j++) {
+        outroTabuleiro[linha][j] = 0;
       }
     }
   }
 
-  // Renderizar o tabuleiro atualizado na página
   renderizarTabuleiro(tabuleiroAtual, jogadorId);
 }
 
-// Criar os tabuleiros para os dois jogadores
+
 let jogador1Tabuleiro = criarTabuleiro();
 let jogador2Tabuleiro = criarTabuleiro();
 
-// Inicialmente, renderizar os tabuleiros na página
 renderizarTabuleiro(jogador1Tabuleiro, 1);
 renderizarTabuleiro(jogador2Tabuleiro, 2);
+
+
+
+
+
