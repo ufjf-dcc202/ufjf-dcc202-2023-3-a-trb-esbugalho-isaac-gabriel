@@ -1,3 +1,6 @@
+// Crie uma variável global para o elemento de áudio
+var audio = new Audio('js/audio_file.mp3');
+
 // Função para criar um novo tabuleiro com valores nulos
 function criarTabuleiro() {
   const tabuleiro = [
@@ -28,15 +31,15 @@ function renderizarTabuleiro(tabuleiro, jogadorId) {
       celulaElemento.className = 'celula';
 
       // Atribuir o texto da célula com o valor presente no tabuleiro ou uma string vazia se for nulo
-      celulaElemento.innerText = tabuleiro[i][j];
-      
+      celulaElemento.innerText = tabuleiro[i][j] || '';
+
       // Associar a função Clique ao evento de clique da célula
-      celulaElemento.onclick = function() {
+      celulaElemento.onclick = function () {
         Clique(jogadorId, i, j);
       };
 
       // Adicionar a célula à linha
-      linhaElemento.appendChild(celulaElemento); 
+      linhaElemento.appendChild(celulaElemento);
     }
 
     // Adicionar a linha ao tabuleiro
@@ -84,10 +87,9 @@ function Clique(jogadorId, linha, coluna) {
     // Gerar um número aleatório e atribuir à célula atual
     const numeroAleatorio = Math.floor(Math.random() * 9) + 1;
     tabuleiroAtual[linha][coluna] = numeroAleatorio;
- 
+
     // Verificar se pelo menos um valor na linha do adversário é igual ao valor clicado
     const ValorIgual = outroTabuleiro[linha].includes(numeroAleatorio);
-
 
     // Se pelo menos um valor for igual, zera a linha do adversário
     if (ValorIgual) {
@@ -95,6 +97,9 @@ function Clique(jogadorId, linha, coluna) {
         outroTabuleiro[linha][j] = 0;
       }
     }
+
+    // Reproduzir o áudio
+    audio.play();
   }
 
   // Atualizar a representação visual do tabuleiro

@@ -1,12 +1,19 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: 0;
+}
+
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  margin: 20px;
+  
 }
 
 body h1{
   color: white;
   cursor: pointer;
+  text-transform: uppercase ;
 }
 body h1:hover{
   color: red;
@@ -40,9 +47,7 @@ body h1:hover{
   cursor: pointer;
 }
 
-.jogadores h1{
-  font-size: 16px;
-}
+
 .jogadores{
   width: 180px;
 }
@@ -51,6 +56,7 @@ body h1:hover{
   width: 100px;
   height: 30%;
   border-radius: 5px;
+  margin-bottom: 20px ;
 }
 .fundo_img {
   width: 100%;
@@ -66,9 +72,27 @@ body h1:hover{
     font-size: 18px;
     font-family: Arial, sans-serif;
     text-align: center;
-    margin: 20px;
+    margin-bottom: 10px;
+   
   }
 
-  .jogadores h1:hover {
-    color: red;
-  }
+  
+.celula{
+  color: green;
+}
+#jogador2-tabuleiro{
+  background-color: rgb(9, 102, 102);
+  border-radius: 10px;
+  
+}
+
+#jogador1-tabuleiro{
+  background-color: rgb(9, 102, 102);
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.coluna h2{ 
+  font-size: 32px;
+  color: green;
+}
