@@ -20,10 +20,13 @@ function renderizarTabuleiro(tabuleiro, jogadorId) {
     for (let j = 0; j < tabuleiro[i].length; j++) {
       const celulaElemento = document.createElement('div');
       celulaElemento.className = 'celula';
+
       celulaElemento.innerText = tabuleiro[i][j] || '';
+
       celulaElemento.onclick = function () {
         Clique(jogadorId, i, j);
       };
+
       linhaElemento.appendChild(celulaElemento);
     }
 
