@@ -1,3 +1,5 @@
+var audio = new Audio('js/audio_file.mp3');
+
 function criarTabuleiro() {
   const tabuleiro = [
     [null, null, null],
@@ -41,6 +43,7 @@ function calcularPontuacao(tabuleiro) {
   }
   return pontuacao;
 }
+
 function verificarVencedor(tabuleiro, jogadorId, jogadas) {
   if (jogadas === 6) {
     const pontuacaoAtual = calcularPontuacao(tabuleiro);
