@@ -85,3 +85,11 @@ function Clique(jogadorId, linha, coluna) {
     verificarVencedor(tabuleiroAtual, jogadorId, jogador2Jogadas);
   }
 }
+
+let jogador1Tabuleiro = criarTabuleiro();
+let jogador2Tabuleiro = criarTabuleiro();
+let jogador1Jogadas = 0;
+let jogador2Jogadas = 0;
+
+renderizarTabuleiro(jogador1Tabuleiro, 1);
+renderizarTabuleiro(jogador2Tabuleiro, 2);
