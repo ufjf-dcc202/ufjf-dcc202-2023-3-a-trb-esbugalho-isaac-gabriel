@@ -10,7 +10,9 @@ function criarTabuleiro() {
 }
 
 function renderizarTabuleiro(tabuleiro, jogadorId) {
-  const tabuleiroElemento = document.getElementById(`jogador${jogadorId}-tabuleiro`);
+
+const tabuleiroElemento = document.getElementById('jogador' + jogadorId + '-tabuleiro');
+
   tabuleiroElemento.innerHTML = '';
 
   for (let i = 0; i < tabuleiro.length; i++) {
