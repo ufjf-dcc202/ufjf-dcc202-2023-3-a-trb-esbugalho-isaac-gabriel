@@ -7,7 +7,6 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  
 }
 
 body h1{
@@ -27,7 +26,6 @@ body h1:hover{
 }
 
 .coluna {
-  flex: 1;
   background-color: #f0f0f0;
   padding: 10px;
   text-align: center;
@@ -109,4 +107,12 @@ cursor: pointer;
 
 .texto2 {
   margin-right: 20px;
+}
+#Reiniciar{
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: rgb(9, 102, 102);
+  margin-top: 270px;
+  margin-left: 30px;
 }
