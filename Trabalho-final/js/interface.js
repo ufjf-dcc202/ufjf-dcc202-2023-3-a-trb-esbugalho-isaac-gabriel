@@ -1,4 +1,4 @@
-// interface.js
+
 
 import { Clique } from './jogo.js';
 

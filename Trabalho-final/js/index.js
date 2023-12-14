@@ -1,4 +1,4 @@
-// index.js
+
 
 import { criarTabuleiro, Clique, verificarVencedor } from './jogo.js';
 import { renderizarTabuleiro } from './interface.js';
@@ -31,7 +31,6 @@ function reiniciarJogo() {
   jogador1Tabuleiro = criarTabuleiro();
   jogador2Tabuleiro = criarTabuleiro();
 
-  // Renderize os tabuleiros novamente
   renderizarTabuleiro(jogador1Tabuleiro, 1, jogador2Tabuleiro, audio);
   renderizarTabuleiro(jogador2Tabuleiro, 2, jogador1Tabuleiro, audio);
 

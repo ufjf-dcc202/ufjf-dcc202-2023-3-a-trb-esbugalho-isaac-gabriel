@@ -1,4 +1,4 @@
-// jogo.js
+
 
 function criarTabuleiro() {
   const tabuleiro = [
