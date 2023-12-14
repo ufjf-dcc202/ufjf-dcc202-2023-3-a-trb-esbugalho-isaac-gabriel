@@ -1,6 +1,7 @@
 // clique.js
 import { audio } from './audio.js';
 import { renderizarTabuleiro, verificarVencedor } from './tabuleiro.js';
+import { calcularPontuacao } from './pontuacao.js';
 
 export function Clique(jogadorId, linha, coluna, jogador1Tabuleiro, jogador2Tabuleiro, jogador1Jogadas, jogador2Jogadas) {
   let tabuleiroAtual;
