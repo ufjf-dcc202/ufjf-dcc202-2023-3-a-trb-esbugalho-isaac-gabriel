@@ -1,3 +1,4 @@
+export { criarTabuleiro, Clique, verificarVencedor, contarJogadas, calcularPontuacao };
 
 
 function criarTabuleiro() {
@@ -19,7 +20,7 @@ function Clique(jogadorId, linha, coluna, tabuleiroAtual, outroTabuleiro, audio)
 
     if (valorIgual) {
       for (let j = 0; j < outroTabuleiro[linha].length; j++) {
-        outroTabuleiro[linha][j] = 0;
+        outroTabuleiro[linha][j] = null;
       }
     }
 
@@ -37,15 +38,6 @@ function calcularPontuacao(tabuleiro) {
   return pontuacao;
 }
 
-
-function verificarVencedor(tabuleiro, jogadorId) {
-  const jogadas = contarJogadas(tabuleiro);
-  if (jogadas === 6) {
-    const pontuacaoAtual = calcularPontuacao(tabuleiro);
-    alert('Jogador ' + jogadorId + ' venceu com ' + pontuacaoAtual + ' pontos.');
-  }
-}
-
 function contarJogadas(tabuleiro) {
   let jogadas = 0;
   for (let i = 0; i < tabuleiro.length; i++) {
@@ -58,5 +50,12 @@ function contarJogadas(tabuleiro) {
   return jogadas;
 }
 
+function verificarVencedor(tabuleiro, jogadorId) {
+   jogadas = contarJogadas(tabuleiro);
+  if (jogadas === 6) {
+    const pontuacaoAtual = calcularPontuacao(tabuleiro);
+    alert('Jogador ' + jogadorId + ' venceu com ' + pontuacaoAtual + ' pontos.');
+  }
+}
 
-export { criarTabuleiro, Clique, verificarVencedor, contarJogadas, calcularPontuacao };
+
