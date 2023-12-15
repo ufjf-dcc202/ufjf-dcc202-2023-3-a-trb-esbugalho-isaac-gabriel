@@ -37,6 +37,8 @@ document.getElementById('Reiniciar').onclick = function () {
   reiniciarJogo();
 };
 
+
+
 // Função para reiniciar o jogo
 function reiniciarJogo() {
   // Cria novos tabuleiros para jogadores 1 e 2

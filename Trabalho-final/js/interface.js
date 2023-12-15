@@ -24,9 +24,17 @@ export function renderizarTabuleiro(tabuleiro, jogadorId, outroTabuleiro, audio)
       // Obtém o número presente na célula
       const numero = tabuleiro[i][j];
 
-      // Cria um elemento span para exibir o número na célula (ou vazio se for null)
+      // Cria um novo elemento 'span'
       const numeroElemento = document.createElement('span');
-      numeroElemento.innerText = numero !== null ? numero : '';
+
+      // Verifica se o valor de 'numero' não é nulo
+      if (numero !== null) {
+        // Se 'numero' não for nulo, define o texto do elemento como o valor de 'numero'
+        numeroElemento.innerText = numero;
+      } else {
+        // Se 'numero' for nulo, define o texto do elemento como uma string vazia
+        numeroElemento.innerText = '';
+      }
 
       // Adiciona o elemento de número à célula
       celulaElemento.appendChild(numeroElemento);
