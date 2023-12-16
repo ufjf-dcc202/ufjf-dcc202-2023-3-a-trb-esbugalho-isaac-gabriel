@@ -1,7 +1,7 @@
 import { criarTabuleiro, Clique, verificarVencedor } from './jogo.js';
 import { renderizarTabuleiro } from './interface.js';
 
-var audio = new Audio('js/audio_file.mp3');
+var musica = new Audio('js/audio_file.mp3');
 
 var jogador1Tabuleiro = criarTabuleiro();
 var jogador2Tabuleiro = criarTabuleiro();
