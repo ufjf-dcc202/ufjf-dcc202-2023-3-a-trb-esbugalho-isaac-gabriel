@@ -1,4 +1,4 @@
-// Importe a função renderizarTabuleiro aqui, se necessário
+import { renderizarTabuleiro } from './interface.js';
 
 export function criarTabuleiro() {
   const tabuleiro = [
@@ -11,49 +11,49 @@ export function criarTabuleiro() {
 
 export function Clique(jogadorId, linha, coluna, tabuleiroAtual, outroTabuleiro, audio) {
   if (tabuleiroAtual && tabuleiroAtual[linha] && tabuleiroAtual[linha][coluna] === null) {
-    const numeroAleatorio = Math.floor(Math.random() * 6) + 1; 
+    const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
 
     tabuleiroAtual[linha][coluna] = numeroAleatorio;
 
-    // Calcular a pontuação da coluna
     let pontuacaoColuna = 0;
     for (let i = 0; i < tabuleiroAtual.length; i++) {
       pontuacaoColuna += tabuleiroAtual[i][coluna];
     }
 
-    // Multiplicar pela quantidade de dados de mesmo valor na coluna
-    let quantidadeDados = 0;
-    for (let i = 0; i < tabuleiroAtual.length; i++) {
-      if (tabuleiroAtual[i][coluna] === numeroAleatorio) {
-        quantidadeDados++;
-      }
-    }
+    pontuacaoColuna *= contarDadosNaColuna(tabuleiroAtual, coluna, numeroAleatorio);
 
-    pontuacaoColuna *= quantidadeDados;
+    let pontuacaoTotal = calcularPontuacao(tabuleiroAtual) - pontuacaoColuna + pontuacaoColuna;
 
-    // Atualizar a pontuação total
-    let pontuacaoTotal = calcularPontuacao(tabuleiroAtual);
+    atualizarTabuleiroOponente(outroTabuleiro, linha, numeroAleatorio);
 
-    // Atualizar a pontuação do jogador
-    pontuacaoTotal -= pontuacaoColuna;
-    pontuacaoTotal += pontuacaoColuna;
-
-    // Atualizar o tabuleiro do oponente
-    if (outroTabuleiro && outroTabuleiro[linha]) {
-      for (let i = 0; i < outroTabuleiro[linha].length; i++) {
-        if (outroTabuleiro[linha][i] === numeroAleatorio) {
-          outroTabuleiro[linha][i] = null;
-        }
-      }
-    }
-
-    // Reproduzir o áudio se disponível
     if (audio && typeof audio.play === 'function') {
       audio.play();
     }
 
-    // Renderizar os tabuleiros após a atualização
     renderizarTabuleiro(tabuleiroAtual, jogadorId, outroTabuleiro, audio);
+
+    if (contarJogadas(tabuleiroAtual) === 9) {
+      verificarVencedor(tabuleiroAtual, jogadorId);
+    }
+  }
+}
+
+function contarDadosNaColuna(tabuleiro, coluna, numeroAleatorio) {
+  let count = 0;
+  for (let i = 0; i < tabuleiro.length; i++) {
+    if (tabuleiro[i][coluna] === numeroAleatorio) {
+      count++;
+    }
+  }
+  return count;
+}
+
+function atualizarTabuleiroOponente(tabuleiro, linha, numeroAleatorio) {
+  for (let i = 0; i < tabuleiro[linha].length; i++) {
+    const index = tabuleiro[linha].indexOf(numeroAleatorio);
+    if (index !== -1) {
+      tabuleiro[linha][index] = null;
+    }
   }
 }
 
@@ -61,7 +61,7 @@ export function calcularPontuacao(tabuleiro) {
   let pontuacao = 0;
   for (let i = 0; i < tabuleiro.length; i++) {
     for (let j = 0; j < tabuleiro[i].length; j++) {
-      pontuacao += tabuleiro[i][j];
+      pontuacao += tabuleiro[i][j] || 0;
     }
   }
   return pontuacao;
