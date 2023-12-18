@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 import { renderizarTabuleiro } from './interface.js';
 
-=======
->>>>>>> parent of 71efdba (nada)
 export function criarTabuleiro() {
   const tabuleiro = [
     [null, null, null],
@@ -13,25 +10,19 @@ export function criarTabuleiro() {
 }
 
 export function Clique(jogadorId, linha, coluna, tabuleiroAtual, outroTabuleiro, audio) {
-  if (tabuleiroAtual && tabuleiroAtual[linha] && tabuleiroAtual[linha][coluna] === null) {
+  
+  if ( tabuleiroAtual &&tabuleiroAtual[linha] &&tabuleiroAtual[linha][coluna] === null  ) {
     const numeroAleatorio = Math.floor(Math.random() * 6) + 1;
 
     tabuleiroAtual[linha][coluna] = numeroAleatorio;
 
-    let pontuacaoColuna = 0;
-    for (let i = 0; i < tabuleiroAtual.length; i++) {
-      pontuacaoColuna += tabuleiroAtual[i][coluna];
-    }
+    const pontuacaoColuna = calcularPontuacaoColuna(tabuleiroAtual, coluna, numeroAleatorio);
 
-    pontuacaoColuna *= contarDadosNaColuna(tabuleiroAtual, coluna, numeroAleatorio);
-
-    let pontuacaoTotal = calcularPontuacao(tabuleiroAtual) - pontuacaoColuna + pontuacaoColuna;
-
-    atualizarTabuleiroOponente(outroTabuleiro, linha, numeroAleatorio);
+    atualizarTabuleiroOponente(outroTabuleiro, coluna, numeroAleatorio);
 
     if (audio && typeof audio.play === 'function') {
       audio.play();
-    }
+    } 
 
     renderizarTabuleiro(tabuleiroAtual, jogadorId, outroTabuleiro, audio);
 
@@ -41,26 +32,28 @@ export function Clique(jogadorId, linha, coluna, tabuleiroAtual, outroTabuleiro,
   }
 }
 
-function contarDadosNaColuna(tabuleiro, coluna, numeroAleatorio) {
-  let count = 0;
+ export function calcularPontuacaoColuna(tabuleiro, coluna, numeroAleatorio) {
+  let contador = 0;
   for (let i = 0; i < tabuleiro.length; i++) {
     if (tabuleiro[i][coluna] === numeroAleatorio) {
-      count++;
+      contador++;
     }
   }
-  return count;
+  return numeroAleatorio * contador;
 }
 
-function atualizarTabuleiroOponente(tabuleiro, linha, numeroAleatorio) {
-  for (let i = 0; i < tabuleiro[linha].length; i++) {
-    const index = tabuleiro[linha].indexOf(numeroAleatorio);
-    if (index !== -1) {
-      tabuleiro[linha][index] = null;
+export function atualizarTabuleiroOponente(tabuleiro, coluna, numeroAleatorio) {
+  for (let i = 0; i < tabuleiro.length; i++) {
+    for (let j = 0; j < tabuleiro[i].length; j++) {
+      if (tabuleiro[i][j] === numeroAleatorio) {
+        tabuleiro[i][j] = null;
+      }
     }
   }
 }
 
-export function calcularPontuacao(tabuleiro) {
+
+ export function calcularPontuacao(tabuleiro) {
   let pontuacao = 0;
   for (let i = 0; i < tabuleiro.length; i++) {
     for (let j = 0; j < tabuleiro[i].length; j++) {
@@ -70,7 +63,7 @@ export function calcularPontuacao(tabuleiro) {
   return pontuacao;
 }
 
-export function contarJogadas(tabuleiro) {
+ export function contarJogadas(tabuleiro) {
   let jogadas = 0;
   for (let i = 0; i < tabuleiro.length; i++) {
     for (let j = 0; j < tabuleiro[i].length; j++) {
@@ -99,6 +92,13 @@ export function verificarVencedor(tabuleiro, jogadorId) {
 
   if (todasAsCasasPreenchidas) {
     const pontuacaoAtual = calcularPontuacao(tabuleiro);
-    alert('Jogador ' + jogadorId + ' venceu com ' + pontuacaoAtual + ' pontos.');
+    alert('Jogador' + jogadorId + 'venceu com' + pontuacaoAtual+ 'pontos.');
   }
+}
+
+export function reiniciarJogo() {
+  jogador1Tabuleiro = criarTabuleiro();
+  jogador2Tabuleiro = criarTabuleiro();
+  renderizarTabuleiro(jogador1Tabuleiro, 1, jogador2Tabuleiro, audio);
+  renderizarTabuleiro(jogador2Tabuleiro, 2, jogador1Tabuleiro, audio);
 }

@@ -1,3 +1,4 @@
+// index.js
 import { criarTabuleiro, Clique, verificarVencedor } from './jogo.js';
 import { renderizarTabuleiro } from './interface.js';
 
@@ -25,9 +26,4 @@ document.getElementById('Reiniciar').onclick = function () {
   reiniciarJogo();
 };
 
-function reiniciarJogo() {
-  jogador1Tabuleiro = criarTabuleiro();
-  jogador2Tabuleiro = criarTabuleiro();
-  renderizarTabuleiro(jogador1Tabuleiro, 1, jogador2Tabuleiro, audio);
-  renderizarTabuleiro(jogador2Tabuleiro, 2, jogador1Tabuleiro, audio);
-}
+  

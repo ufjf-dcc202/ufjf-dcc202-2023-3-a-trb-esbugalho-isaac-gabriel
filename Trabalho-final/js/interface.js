@@ -1,3 +1,4 @@
+// interface.js
 import { Clique } from './jogo.js';
 
 export function renderizarTabuleiro(tabuleiro, jogadorId, outroTabuleiro, audio) {
@@ -24,7 +25,7 @@ export function renderizarTabuleiro(tabuleiro, jogadorId, outroTabuleiro, audio)
       celulaElemento.appendChild(numeroElemento);
 
       celulaElemento.onclick = function () {
-        Clique(jogadorId, i, j, tabuleiro, audio);
+        Clique(jogadorId, i, j, tabuleiro, outroTabuleiro, audio);
         renderizarTabuleiro(tabuleiro, jogadorId, outroTabuleiro, audio);
       };
 

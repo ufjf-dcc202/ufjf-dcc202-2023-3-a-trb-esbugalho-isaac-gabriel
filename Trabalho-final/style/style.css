@@ -1,120 +1,120 @@
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-body h1{
-  color: white;
-  cursor: pointer;
-  text-transform: uppercase ;
-}
-body h1:hover{
-  color: red;
-}
-
-.tabuleiro {
-  display: flex;
-  max-width: 300px;
-  margin: 20px auto;
-  margin-top: 200px;
-}
-
-.coluna {
-  background-color: #f0f0f0;
-  padding: 10px;
-  text-align: center;
-}
-
-.linha {
-  display: flex;
-}
-
-.celula {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  margin: 5px;
-  cursor: pointer;
-}
-
-
-.jogadores{
-  width: 180px;
-}
-
-.jogadores img{
-  width: 100px;
-  height: 30%;
-  border-radius: 5px;
-  margin-bottom: 20px ;
- 
-}
-.fundo_img {
-  width: 100%;
-  height: 100%; /* 100% da altura da viewport */
-  object-fit: cover; /* Para cobrir toda a área, mantendo a proporção da imagem */
-  position: fixed; /* Para manter a imagem fixa na tela enquanto rola */
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-.jogadores h1{
-    color: #fff;
-    font-size: 18px;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-bottom: 10px;
-    align-items: center;
-   
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
   }
 
-  
-.celula{
-  color: green;
-}
-#jogador2-tabuleiro{
-  background-color: rgb(9, 102, 102);
-  border-radius: 10px;
-  margin-right: 20px;
-cursor: pointer;
-  
-}
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
 
-#jogador1-tabuleiro{
-  background-color: rgb(9, 102, 102);
-  border-radius: 10px;
-  margin-right: 40px;
+  body h1{
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase ;
+  }
+  body h1:hover{
+    color: red;
+  }
+
+  .tabuleiro {
+    display: flex;
+    max-width: 300px;
+    margin: 20px auto;
+    margin-top: 200px;
+  }
+
+  .coluna {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .linha {
+    display: flex;
+  }
+
+  .celula {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+
+  .jogadores{
+    width: 180px;
+  }
+
+  .jogadores img{
+    width: 100px;
+    height: 30%;
+    border-radius: 5px;
+    margin-bottom: 20px ;
+  
+  }
+  .fundo_img {
+    width: 100%;
+    height: 100%; /* 100% da altura da viewport */
+    object-fit: cover; /* Para cobrir toda a área, mantendo a proporção da imagem */
+    position: fixed; /* Para manter a imagem fixa na tela enquanto rola */
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .jogadores h1{
+      color: #fff;
+      font-size: 18px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-bottom: 10px;
+      align-items: center;
+    
+    }
+
+    
+  .celula{
+    color: green;
+  }
+  #jogador2-tabuleiro{
+    background-color: rgb(9, 102, 102);
+    border-radius: 10px;
+    margin-right: 20px;
   cursor: pointer;
-}
+    
+  }
 
-.img-2{
-  margin-right: 20px;
-}
+  #jogador1-tabuleiro{
+    background-color: rgb(9, 102, 102);
+    border-radius: 10px;
+    margin-right: 40px;
+    cursor: pointer;
+  }
 
-.img-1{
-  margin-right: 40px;
-}
-.texto {
-  margin-right: 40px;
-}
+  .img-2{
+    margin-right: 20px;
+  }
 
-.texto2 {
-  margin-right: 20px;
-}
+  .img-1{
+    margin-right: 40px;
+  }
+  .texto {
+    margin-right: 40px;
+  }
 
-#Reiniciar{
-  width: 100px;
-  height: 40px;
-  border-radius: 5px;
-  background-color: rgb(9, 102, 102);
-  margin-top: 270px;
-  margin-left: 30px;
-}
+  .texto2 {
+    margin-right: 20px;
+  }
+
+  #Reiniciar{
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(9, 102, 102);
+    margin-top: 270px;
+    margin-left: 30px;
+  }
