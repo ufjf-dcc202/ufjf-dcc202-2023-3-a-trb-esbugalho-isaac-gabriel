@@ -83,6 +83,7 @@ body h1:hover{
 #jogador2-tabuleiro{
   background-color: rgb(9, 102, 102);
   border-radius: 10px;
+  margin-right: 20px;
 cursor: pointer;
   
 }
@@ -90,7 +91,7 @@ cursor: pointer;
 #jogador1-tabuleiro{
   background-color: rgb(9, 102, 102);
   border-radius: 10px;
-  margin-right: 20px;
+  margin-right: 40px;
   cursor: pointer;
 }
 
