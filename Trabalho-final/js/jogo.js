@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import { renderizarTabuleiro } from './interface.js';
 
+=======
+>>>>>>> parent of 71efdba (nada)
 export function criarTabuleiro() {
   const tabuleiro = [
     [null, null, null],
