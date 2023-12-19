@@ -26,4 +26,9 @@ document.getElementById('Reiniciar').onclick = function () {
   reiniciarJogo();
 };
 
-  
+export function reiniciarJogo() {
+  jogador1Tabuleiro = criarTabuleiro();
+  jogador2Tabuleiro = criarTabuleiro();
+  renderizarTabuleiro(jogador1Tabuleiro, 1, jogador2Tabuleiro, audio);
+  renderizarTabuleiro(jogador2Tabuleiro, 2, jogador1Tabuleiro, audio);
+}

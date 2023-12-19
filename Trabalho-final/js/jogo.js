@@ -9,6 +9,7 @@ export function criarTabuleiro() {
   return tabuleiro;
 }
 
+
 export function Clique(jogadorId, linha, coluna, tabuleiroAtual, outroTabuleiro, audio) {
   
   if ( tabuleiroAtual &&tabuleiroAtual[linha] &&tabuleiroAtual[linha][coluna] === null  ) {
@@ -16,7 +17,6 @@ export function Clique(jogadorId, linha, coluna, tabuleiroAtual, outroTabuleiro,
 
     tabuleiroAtual[linha][coluna] = numeroAleatorio;
 
-    const pontuacaoColuna = calcularPontuacaoColuna(tabuleiroAtual, coluna, numeroAleatorio);
 
     atualizarTabuleiroOponente(outroTabuleiro, coluna, numeroAleatorio);
 
@@ -96,9 +96,4 @@ export function verificarVencedor(tabuleiro, jogadorId) {
   }
 }
 
-export function reiniciarJogo() {
-  jogador1Tabuleiro = criarTabuleiro();
-  jogador2Tabuleiro = criarTabuleiro();
-  renderizarTabuleiro(jogador1Tabuleiro, 1, jogador2Tabuleiro, audio);
-  renderizarTabuleiro(jogador2Tabuleiro, 2, jogador1Tabuleiro, audio);
-}
+
