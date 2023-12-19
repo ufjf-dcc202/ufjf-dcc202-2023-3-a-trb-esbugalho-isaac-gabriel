@@ -1,36 +1,36 @@
-import { Clique } from './jogo.js';
+  import { Clique } from './jogo.js';
 
-export function renderizarTabuleiro(tabuleiro, jogadorId, outroTabuleiro, audio) {
-  const tabuleiroElemento = document.getElementById('jogador' + jogadorId + '-tabuleiro');
-  tabuleiroElemento.innerHTML = '';
+  export function renderizarTabuleiro(tabuleiro, jogadorId, outroTabuleiro, audio) {
+    const tabuleiroElemento = document.getElementById('jogador' + jogadorId + '-tabuleiro');
+    tabuleiroElemento.innerHTML = '';
 
-  for (let i = 0; i < tabuleiro.length; i++) {
-    const linhaElemento = document.createElement('div');
-    linhaElemento.className = 'linha';
+    for (let i = 0; i < tabuleiro.length; i++) {
+      const linhaElemento = document.createElement('div');
+      linhaElemento.className = 'linha';
 
-    for (let j = 0; j < tabuleiro[i].length; j++) {
-      const celulaElemento = document.createElement('div');
-      celulaElemento.className = 'celula';
+      for (let j = 0; j < tabuleiro[i].length; j++) {
+        const celulaElemento = document.createElement('div');
+        celulaElemento.className = 'celula';
 
-      const numero = tabuleiro[i][j];
-      const numeroElemento = document.createElement('span');
+        const numero = tabuleiro[i][j];
+        const numeroElemento = document.createElement('span');
 
-      if (numero !== null) {
-        numeroElemento.innerText = numero;
-      } else {
-        numeroElemento.innerText = '';
+        if (numero !== null) {
+          numeroElemento.innerText = numero;
+        } else {
+          numeroElemento.innerText = '';
+        }
+
+        celulaElemento.appendChild(numeroElemento);
+
+        celulaElemento.onclick = function () {
+          Clique(jogadorId, i, j, tabuleiro, outroTabuleiro, audio);
+          renderizarTabuleiro(tabuleiro, jogadorId, outroTabuleiro, audio);
+        };
+
+        linhaElemento.appendChild(celulaElemento);
       }
 
-      celulaElemento.appendChild(numeroElemento);
-
-      celulaElemento.onclick = function () {
-        Clique(jogadorId, i, j, tabuleiro, outroTabuleiro, audio);
-        renderizarTabuleiro(tabuleiro, jogadorId, outroTabuleiro, audio);
-      };
-
-      linhaElemento.appendChild(celulaElemento);
+      tabuleiroElemento.appendChild(linhaElemento);
     }
-
-    tabuleiroElemento.appendChild(linhaElemento);
   }
-}

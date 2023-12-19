@@ -51,8 +51,6 @@ export function atualizarTabuleiroOponente(tabuleiro, coluna, numeroAleatorio) {
     }
   }
 }
-
-
  export function calcularPontuacao(tabuleiro) {
   let pontuacao = 0;
   for (let i = 0; i < tabuleiro.length; i++) {
