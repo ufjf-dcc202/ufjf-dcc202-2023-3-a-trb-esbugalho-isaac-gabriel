@@ -1,4 +1,3 @@
-// interface.js
 import { Clique } from './jogo.js';
 
 export function renderizarTabuleiro(tabuleiro, jogadorId, outroTabuleiro, audio) {

@@ -1,4 +1,3 @@
-// index.js
 import { criarTabuleiro, Clique, verificarVencedor } from './jogo.js';
 import { renderizarTabuleiro } from './interface.js';
 
